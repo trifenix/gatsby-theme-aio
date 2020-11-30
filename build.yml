@@ -1,0 +1,39 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - release/*
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - task: UseGitVersion@5
+    inputs:
+      versionSpec: "5.x"
+      includePrerelease: true
+      useConfigFile: false
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "12.x"
+    displayName: "Install Node.js"
+
+  - task: Npm@1
+    inputs:
+      command: "custom"
+      customCommand: "--no-git-tag-version version $(GitVersion.MajorMinorPatch)$(GitVersion.PreReleaseTagWithDash).build.$(Build.BuildId)"
+      sourceFolder : $(Build.SourcesDirectory)/Package
+
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: "$(Build.SourcesDirectory)/Package"
+      contents: "**"
+      targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    displayName: "Copy Build"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)/npm"
+      artifactName: npm
+    displayName: "Publish npm artifact"
