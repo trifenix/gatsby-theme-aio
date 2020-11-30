@@ -28,7 +28,7 @@ steps:
   - task: Npm@1
     inputs:
       command: "custom"
-      customCommand: "version $(SemVer)"
+      customCommand: "version $(SemVer) --no-git-tag-version"
       sourceFolder : $(Build.SourcesDirectory)/Packages/gatsby-theme-aio
 
   - task: CopyFiles@2
