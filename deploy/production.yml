@@ -1,0 +1,45 @@
+trigger:
+    branches:
+      include:        
+        - master  
+pool:
+  vmImage: "ubuntu-latest"
+
+variables: 
+  BuildConfiguration: 'release'
+  
+
+pr: none
+  
+steps:
+
+  - task: gitversion/setup@0
+    inputs:
+      versionSpec: '5.1'
+      includePrerelease: false
+    displayName : "Configurando gitversion"
+
+  - task: gitversion/execute@0
+    inputs:
+      useConfigFile: true
+      configFilePath: "deploy/gitConfig.yml" 
+    displayName: "generando la nueva versión"
+  
+   - task: Npm@1
+    inputs:
+      command: "custom"
+      customCommand: "--no-git-tag-version version $(SemVer).build.$(Build.BuildId)"
+      sourceFolder : $(Build.SourcesDirectory)/Package
+
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: "$(Build.SourcesDirectory)/Package"
+      contents: "**"
+      targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    displayName: "Copy Build"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)/npm"
+      artifactName: npm
+    displayName: "Publish npm artifact"
