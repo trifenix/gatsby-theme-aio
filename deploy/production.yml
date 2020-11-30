@@ -33,7 +33,7 @@ steps:
 
   - task: CopyFiles@2
     inputs:
-      sourceFolder: "$(Build.SourcesDirectory)/Packages/gatsby-theme-aio"
+      sourceFolder: $(Build.SourcesDirectory)/Packages/gatsby-theme-aio
       contents: "**"
       targetFolder: $(Build.ArtifactStagingDirectory)/npm
     displayName: "Copy Build"
