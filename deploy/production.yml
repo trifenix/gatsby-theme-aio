@@ -28,7 +28,7 @@ steps:
   - task: Npm@1
     inputs:
       command: "custom"
-      customCommand: "--no-git-tag-version version $(SemVer).build.$(Build.BuildId)"
+      customCommand: "version $(SemVer)"
       sourceFolder : $(Build.SourcesDirectory)/Packages/gatsby-theme-aio
 
   - task: CopyFiles@2
@@ -45,4 +45,3 @@ steps:
     displayName: "Publish npm artifact"
 
 
-    
