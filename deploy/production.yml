@@ -25,11 +25,11 @@ steps:
       configFilePath: "deploy/gitConfig.yml" 
     displayName: "generando la nueva versión"
   
-   - task: Npm@1
+  - task: Npm@1
     inputs:
       command: "custom"
       customCommand: "--no-git-tag-version version $(SemVer).build.$(Build.BuildId)"
-      sourceFolder : $(Build.SourcesDirectory)/Package
+      workingDir: "$(Build.SourcesDirectory)/Package"
 
   - task: CopyFiles@2
     inputs:
