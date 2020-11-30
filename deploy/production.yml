@@ -29,11 +29,11 @@ steps:
     inputs:
       command: "custom"
       customCommand: "--no-git-tag-version version $(SemVer).build.$(Build.BuildId)"
-      sourceFolder : $(Build.SourcesDirectory)/Package
+      sourceFolder : $(Build.SourcesDirectory)/Packages/gatsby-theme-aio
 
   - task: CopyFiles@2
     inputs:
-      sourceFolder: "$(Build.SourcesDirectory)/Package"
+      sourceFolder: "$(Build.SourcesDirectory)/Packages/gatsby-theme-aio"
       contents: "**"
       targetFolder: $(Build.ArtifactStagingDirectory)/npm
     displayName: "Copy Build"
