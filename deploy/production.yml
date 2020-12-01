@@ -7,8 +7,6 @@ pool:
 
 variables: 
   BuildConfiguration: 'release'
-  
-
 pr: none
   
 steps:
@@ -32,13 +30,13 @@ steps:
       workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio/'
       customCommand: 'version $(SemVer)  --no-git-tag-version'
       customRegistry: 'useFeed'
-      customFeed: '4227dc51-6e8c-42c1-97ca-a33e6615385d'
+      customFeed: '$(default-feed)'
   - task: Npm@1
     inputs:
       command: 'install'
       workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio/'
       customRegistry: 'useFeed'
-      customFeed: '4227dc51-6e8c-42c1-97ca-a33e6615385d'
+      customFeed: '$(default-feed)'
 
 
   - task: CopyFiles@2
@@ -48,10 +46,11 @@ steps:
       targetFolder: $(Build.ArtifactStagingDirectory)/npm
     displayName: "Copy Build"
 
-  - task: PublishBuildArtifacts@1
+  - task: Npm@1
     inputs:
-      pathtoPublish: "$(Build.ArtifactStagingDirectory)/npm"
-      artifactName: npm
-    displayName: "Publish npm artifact"
+      command: 'publish'
+      workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio'
+      publishRegistry: 'useFeed'
+      publishFeed: '$(default-feed)'
 
 
