@@ -195,12 +195,8 @@ const GlobalHeader = ({ globalNav, versions, pages, docs, location, toggleSideNa
                     text-decoration: none;
                   `}>
                   <Flex alignItems="center" id="GlobalHeader-title">
-                    {globalNav.home.logo === 'adobe' ? (
-                      <img src="https://logos.trifenix.io/logo.png" />
-                      
-                    ) : (
-                      globalNav.home.logo
-                    )}
+                  <img style="width: var(--spectrum-global-dimension-size-300); height: var(--spectrum-global-dimension-size-250); display: block; margin-right: var(--spectrum-global-dimension-size-100);" src="https://logos.trifenix.io/logo.png" />
+                    
                     <strong className="spectrum-Heading--XXS">{globalNav.home.title}</strong>
                   </Flex>
                 </a>
