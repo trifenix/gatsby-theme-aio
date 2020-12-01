@@ -1,5 +1,5 @@
 {
-  "name": "internal-theme",
+  "name": "@adobe/gatsby-theme-aio",
   "version": "2.14.0",
   "description": "Subimplementación de adobe gatby",
   "main": "index.js",
