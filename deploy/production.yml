@@ -40,9 +40,7 @@ steps:
       workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio/'
       customCommand: 'install clone@^1.0.2'
       customRegistry: 'useFeed'
-      customFeed: '4227dc51-6e8c-42c1-97ca-a33e6615385d''
-
-  
+      customFeed: '4227dc51-6e8c-42c1-97ca-a33e6615385d'
   
   - task: Npm@1
     inputs:
@@ -50,7 +48,7 @@ steps:
       workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio/'
       customRegistry: 'useFeed'
       customFeed: '4227dc51-6e8c-42c1-97ca-a33e6615385d'
-  
+
 
   - task: CopyFiles@2
     inputs:
