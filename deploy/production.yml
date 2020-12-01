@@ -25,6 +25,7 @@ steps:
     displayName: "generando la nueva versión"
   
   - task: Npm@1
+<<<<<<< HEAD
     inputs:
       command: 'custom'
       workingDir: '$(Build.SourcesDirectory)/packages/gatsby-theme-aio/'
@@ -38,6 +39,13 @@ steps:
       customRegistry: 'useFeed'
       customFeed: '$(default-feed)'
 
+=======
+    inputs:
+      command: 'custom'
+      workingDir: '$(Build.SourcesDirectory)/Package'
+      customCommand: '--no-git-tag-version version $(SemVer).build.$(Build.BuildId)'
+      
+>>>>>>> b42cc8844fb4c6be6a6f9b0bebbc9be6456fe6e6
 
   - task: CopyFiles@2
     inputs:
