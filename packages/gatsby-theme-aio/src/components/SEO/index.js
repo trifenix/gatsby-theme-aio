@@ -15,11 +15,11 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // TODO Define additional meta properties
 export const SEO = ({
-  title = 'Adobe I/O',
-  description = 'Adobe I/O Site',
-  locale = 'en-US',
+  title = 'Trifenix',
+  description = 'Trifenix Connect documentación',
+  locale = 'es-ES',
   direction = 'ltr',
-  favIcon = 'https://www.adobe.com/favicon.ico'
+  favIcon = 'https://logos.trifenix.io/logo2.ico'
 }) => (
   <HelmetProvider>
     <Helmet>
