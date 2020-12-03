@@ -310,9 +310,9 @@ export default ({ children, pageContext, query }) => {
                         }
                       />
                     </View>
-                    <View id="Layout-feedback">
+                    {/* <View id="Layout-feedback">
                       <Feedback />
-                    </View>
+                    </View> */}
                   </Flex>
                 )}
               </div>

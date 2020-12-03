@@ -25,6 +25,8 @@ const Heading = ({ children }) => <h3 className="spectrum-Heading--XS">{children
 const List = ({ children }) => <ul className="spectrum-Body--S">{children}</ul>;
 
 const Footer = ({ hasSideNav = false, links = {} }) => {
+
+  if (links == {}) return (<></>);
   const { APIs = [], services = [], community = [], support = [], developer = [], legal = [], allAPIs } = links;
 
   return (
