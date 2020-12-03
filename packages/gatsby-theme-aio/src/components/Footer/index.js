@@ -26,7 +26,7 @@ const List = ({ children }) => <ul className="spectrum-Body--S">{children}</ul>;
 
 const Footer = ({ hasSideNav = false, links = {} }) => {
 
-  if (links == {}) return (<></>);
+  if (links.APIs == null) return (<></>);
   const { APIs = [], services = [], community = [], support = [], developer = [], legal = [], allAPIs } = links;
 
   return (

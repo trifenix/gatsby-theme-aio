@@ -288,7 +288,7 @@ export default ({ children, pageContext, query }) => {
 
                 {isDocs && <NextPrev nextPage={nextPage} previousPage={previousPage} />}
 
-                {!isDiscovery && (
+                {/* {!isDiscovery && (
                   <Flex
                     id="Layout-help"
                     alignItems="center"
@@ -310,11 +310,9 @@ export default ({ children, pageContext, query }) => {
                         }
                       />
                     </View>
-                    {/* <View id="Layout-feedback">
-                      <Feedback />
-                    </View> */}
+                   
                   </Flex>
-                )}
+                )} */}
               </div>
 
               {hasOnThisPage && <OnThisPage tableOfContents={tableOfContents} />}
