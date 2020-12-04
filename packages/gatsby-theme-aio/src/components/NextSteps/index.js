@@ -27,7 +27,7 @@ const NextSteps = ({ pages }) => {
         css={css`
           margin-bottom: var(--spectrum-global-dimension-size-200);
         `}>
-        Next steps
+        Siguientes pasos
       </h3>
       <ul
         className="spectrum-Body--M"
