@@ -35,7 +35,7 @@ const GitHubActions = ({ repository, branch, root, pagePath }) => {
         {...commonsProps}
         href={`https://github.com/${repository}/edit/${branch}${rootFolder}/src/pages/${pagePath}`}>
         <Edit />
-        <Text>Edit in GitHub</Text>
+        <Text>Editar en GitHub</Text>
       </ActionButton>
 
       <ActionButton
@@ -45,7 +45,7 @@ const GitHubActions = ({ repository, branch, root, pagePath }) => {
           margin-left: var(--spectrum-global-dimension-size-100);
         `}>
         <Bug />
-        <Text>Log an issue</Text>
+        <Text>Registrar un error</Text>
       </ActionButton>
     </Flex>
   );

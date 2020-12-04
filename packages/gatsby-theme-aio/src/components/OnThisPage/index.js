@@ -154,7 +154,7 @@ const OnThisPage = ({ tableOfContents }) => {
           color: var(--spectrum-global-color-gray-600);
           margin-bottom: var(--spectrum-global-dimension-size-250);
         `}>
-        On this page
+        Es esta página
       </h4>
       <ol
         className="spectrum-Body--M"
